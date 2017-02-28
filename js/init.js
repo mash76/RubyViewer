@@ -9,9 +9,14 @@ osRunCb('ruby -v', function(ret_ary,stderr,command){
   $('#current_ruby_version').append(ret_ary.join('<br/>') + '<br/>')
 })
 
-osRunCb('gem list #localgem', function(ret_ary,stderr,command){
+osRunCb('gem list -l #localgem', function(ret_ary,stderr,command){
   $('#local_gem').append(sRed(command) + '<pre>' + ret_ary.join('<br/>') + '</pre>')
 })
+osRunCb('gem list -r #remotegem', function(ret_ary,stderr,command){
+  $('#remote_gem').append(sRed(command) + '<pre>' + ret_ary.join('<br/>') + '</pre>')
+})
+
+
 osRunCb('gem environment #gemの場所', function(ret_ary,stderr,command){
   $('#local_gem').append(sRed(command) + '<pre>' + ret_ary.join('<br/>') + '</pre>')
 })
